@@ -5,6 +5,7 @@ import './App.css'
 import ContadorHooks from './components/ContadorHooks'
 import ScrollHooks from './components/ScrollHooks'
 import RelojHooks from './components/RelojHooks'
+import AjaxHooks from './components/AjaxHooks'
 
 
 function App() {
@@ -16,6 +17,8 @@ function App() {
       <ContadorHooks titulo="contador de seguidores"></ContadorHooks>
       <hr/>
       <RelojHooks></RelojHooks>
+      <hr/>
+      <AjaxHooks></AjaxHooks>
     </>
   )
 }
