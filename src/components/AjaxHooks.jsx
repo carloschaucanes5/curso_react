@@ -1,17 +1,17 @@
 import React,{useState,useEffect} from "react";
 
-function Poke({name,avatar}){
+const Poke=({name,avatar})=>{
     return (
         <figure>
-            <img src={avatar} alt={name}  />
+            <img  src={avatar} alt={name}  />
             <figcaption>{name}</figcaption>
         </figure>
     );
 }
 
-export default function AjaxHooks(){
+const  AjaxHooks=()=>{
     const [pokemons, setPokemons] = useState([]);
-    useEffect(()=>{
+    /*useEffect(()=>{
         let url = "https://pokeapi.co/api/v2/pokemon/";
         fetch(url)
         .then(res=>res.json())
@@ -25,14 +25,41 @@ export default function AjaxHooks(){
                         name:json.name,
                         avatar:json.sprites.front_default
                     };
-                    setPokemons((pokemons)=>[...pokemons,pokemon]);
+                    setPokemons(()=>[...pokemons,pokemon]);
                 })
                 
             })
         })
 
-        },[]);
+        },[]);*/
 
+
+        useEffect(()=>{
+            let url = "https://pokeapi.co/api/v2/pokemon/";
+            const getPokemons = async(url)=>{
+                let res = await fetch(url);
+                let json = await res.json();
+                
+                json.results.forEach(async (el)=>{
+                    let res =  await fetch(el.url);
+                    let json = await res.json();
+                    
+                    let pokemon = { 
+                        id:json.id,
+                        name:json.name,
+                        avatar:json.sprites.front_default
+                    };
+                    setPokemons(()=>[...pokemons,pokemon]);
+                    
+                })
+            }
+
+
+
+
+         
+    
+            },[]);
     return (
         
         <>
@@ -41,9 +68,11 @@ export default function AjaxHooks(){
             pokemons.length == 0?
             (<h3>Cargando</h3>):
             (pokemons.map((el)=>{
-               <Poke name={el.name} avatar={el.avatar}></Poke>
+               <Poke key={el.id} name={el.name} avatar={el.avatar}></Poke>
             }))
         }
         </>
     );
 }
+
+export default AjaxHooks;
