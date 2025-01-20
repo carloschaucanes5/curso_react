@@ -7,7 +7,7 @@ import ScrollHooks from './components/ScrollHooks'
 import RelojHooks from './components/RelojHooks'
 import AjaxHooks from './components/AjaxHooks'
 import HooksPersonalizados from './components/HooksPersonalizados'
-
+import Estilos from './components/Estilos'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +22,8 @@ function App() {
       <AjaxHooks></AjaxHooks>
       <hr/>
       <HooksPersonalizados></HooksPersonalizados>
+      <hr/>
+      <Estilos></Estilos>
     </>
   )
 }

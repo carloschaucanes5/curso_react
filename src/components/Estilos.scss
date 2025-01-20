@@ -1,0 +1,10 @@
+$color1:red;
+$color2:blue;
+
+.bgscss{
+    background-color: $color1;
+
+    &:hover{
+        background-color: $color2;
+    }
+}
