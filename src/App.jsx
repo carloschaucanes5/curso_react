@@ -8,6 +8,7 @@ import RelojHooks from './components/RelojHooks'
 import AjaxHooks from './components/AjaxHooks'
 import HooksPersonalizados from './components/HooksPersonalizados'
 import Estilos from './components/Estilos'
+import ComponentesEstilizados from './components/ComponentesEstilizados'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,6 +25,8 @@ function App() {
       <HooksPersonalizados></HooksPersonalizados>
       <hr/>
       <Estilos></Estilos>
+      <hr />
+      <ComponentesEstilizados/>
     </>
   )
 }
